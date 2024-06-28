@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <link rel="bookmark" type="image/x-icon" href="<%- theme.head.favicon %>" />
+  <link rel="shortcut icon" href="<%- theme.head.favicon %>">
+  <% if(page.layout === 'gallery') { %>
+    <%- partial('_partial/gallery_head', {}, {cache: true}) %>
+  <% } else { %>
+    <%- partial('_partial/head', {}, {cache: true}) %>
+    <%- partial('_partial/importJS', {}, {cache: true}) %>
+  <% } %>
+</head>
+
+<body>
+  <% if(page.layout === 'gallery') { %>
+    <!-- Single Gallery Page -->
+    <%- partial('_widget/page-gallery', {}, {cache: true}) %>
+  <% } else { %>
+    <%- body %>
+  <% } %>
+
+  <!-- Add the Instagram icon link -->
+  <footer>
+    <a href="https://www.instagram.com/yourprofile" target="_blank">
+      <img src="<%= url_for('css/images/instagram.svg') %>" alt="Instagram" />
+    </a>
+  </footer>
+</body>
+</html>
